@@ -1,0 +1,5 @@
+# crontab -e
+# Update dynamic DNS every 5 minutes
+*/5 * * * * ~/duckdns/duck.sh >/dev/null 2>&1
+# Nightly world backup at 4:00 AM
+0 4 * * * /home/<USER>/minecraft-server/backup.sh >> /home/<USER>/minecraft-backups/backup.log 2>&1

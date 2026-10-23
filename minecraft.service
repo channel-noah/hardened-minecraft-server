@@ -1,0 +1,16 @@
+# /etc/systemd/system/minecraft.service
+[Unit]
+Description=Minecraft Paper Server
+After=network.target
+
+[Service]
+Type=forking
+User=<USER>
+WorkingDirectory=/home/<USER>/minecraft-server
+ExecStart=/usr/bin/screen -dmS minecraft /home/<USER>/minecraft-server/start.sh
+ExecStop=/usr/bin/screen -S minecraft -X stuff "stop\n"
+Restart=on-failure
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

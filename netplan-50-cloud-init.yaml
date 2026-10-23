@@ -1,0 +1,12 @@
+# /etc/netplan/50-cloud-init.yaml  (chmod 600, since it holds the Wi-Fi password)
+network:
+  version: 2
+  ethernets:
+    enp11s0:
+      dhcp4: true
+  wifis:
+    wlp10s0:
+      dhcp4: true
+      access-points:
+        "<WIFI_SSID>":
+          password: "<WIFI_PASSWORD>"
